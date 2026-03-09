@@ -34,16 +34,29 @@
         </div>
 
         <div class="flex items-center gap-1">
-            <input type="text" placeholder="Search issues..." class="input input-bordered w-full max-w-sm" /> 
+            <input type="text" placeholder="Search issues..." class="input input-bordered w-full max-w-sm" />
             <button class="btn btn-primary ml-2">
                 <i class="fa-solid fa-plus mr-2"></i> New Issue
             </button>
         </div>
     </nav>
 
-    <div class="bg-[#F8FAFC] min-h-screen flex items-center justify-center p-4">
+    <div class="bg-[#F8FAFC] min-h-screen p-4 sm:p-6 pt-8 sm:pt-10">
+
+        <div class="bg-white p-4 rounded-lg shadow-sm mb-6 flex flex-wrap gap-3 
+                w-full max-w-6xl mx-auto">
+            <button id="allBtn" class="btn btn-primary btn-sm px-6 sm:px-8">All</button>
+            <button id="openBtn" class="btn btn-outline border-gray-300 text-gray-500 btn-sm px-6 sm:px-8">Open</button>
+            <button id="closedBtn"
+                class="btn btn-outline border-gray-300 text-gray-500 btn-sm px-6 sm:px-8">Closed</button>
+        </div>
+
+        <div id="issue_container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full max-w-6xl mx-auto">
+        </div>
 
     </div>
+
+    <script src="script/script.js"></script>
 </body>
 
 </html>
