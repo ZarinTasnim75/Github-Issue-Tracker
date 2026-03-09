@@ -30,7 +30,7 @@ async function loadIssues() {
 function renderIssues(issues) {
     const container = document.getElementById("issue_container");
     container.innerHTML = "";
-
+    document.getElementById("issueCount").textContent = issues.length;
     issues.forEach(issue => {
 
         let priorityColor = "bg-yellow-100 text-yellow-700";
@@ -77,12 +77,13 @@ function renderIssues(issues) {
 
             <!-- Title -->
             <div class="flex flex-col items-start gap-3 mb-2">
-                <div class="w-6 h-6 rounded-full border-2 border-dashed border-green-400 flex items-center justify-center">
-                    <div class="w-2 h-2 bg-green-400 rounded-full"></div>
-                </div>
-                <h3 class="font-semibold text-gray-800 text-sm pr-16">
-                    ${issue.title}
-                </h3>
+                <img src="${issue.status === 'open' ? 'assets/Open-Status.png' : 'assets/Closed-Status.png'}"
+         class="w-6 h-6"
+         alt="">
+
+    <h3 class="font-semibold text-gray-800 text-sm pr-16">
+        ${issue.title}
+    </h3>
             </div>
 
             <!-- Description -->

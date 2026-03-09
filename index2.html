@@ -51,9 +51,43 @@
                 class="btn btn-outline border-gray-300 text-gray-500 btn-sm px-6 sm:px-8">Closed</button>
         </div>
 
-        <div id="issue_container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full max-w-6xl mx-auto">
-        </div>
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 w-full max-w-6xl mx-auto">
 
+            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 p-5">
+
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-purple-100 flex items-center justify-center rounded-full">
+                        <img src="assets/Aperture.png" class="w-5 h-5">
+                    </div>
+
+                    <div>
+                        <h2 class="font-semibold text-lg">
+                           <p class="text-xl"> <span id="issueCount" class="text-xl">0</span> Issues</p>
+                        </h2>
+                        <p class="text-sm text-gray-500">
+                            Track and manage your project issues
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4 text-sm flex-wrap">
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                       <p> Open</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 bg-purple-500 rounded-full"></span>
+                       <p> Closed</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="border-t border-gray-300"></div>
+
+            <div id="issue_container" class="grid bg-[#FBFBFB] grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-6 w-full max-w-6xl mx-auto"></div>
+
+        </div>
     </div>
 
     <script src="script/script.js"></script>
