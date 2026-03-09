@@ -189,3 +189,25 @@ document.getElementById("closeModal").onclick = function(){
     document.getElementById("issueModal").classList.add("hidden");
 };
 
+const searchInput = document.getElementById("searchInput");
+
+searchInput.addEventListener("input", () => {
+  const query = searchInput.value.trim().toLowerCase();
+
+  if (!query) {
+    renderIssues(allIssues);
+    return;
+  }
+
+  const filtered = allIssues.filter(issue => {
+    return (
+      issue.title.toLowerCase().includes(query) ||
+      issue.description.toLowerCase().includes(query) ||
+      issue.labels.some(label => label.toLowerCase().includes(query)) ||
+      issue.author.toLowerCase().includes(query) ||
+      (issue.assignee && issue.assignee.toLowerCase().includes(query))
+    );
+  });
+
+  renderIssues(filtered);
+});
