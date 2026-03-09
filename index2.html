@@ -89,16 +89,15 @@
         </div>
     </div>
 
-<!--  -->
-<div id="issueModal" class="fixed inset-0 bg-blue-500/10 backdrop-blur-sm hidden flex items-center justify-center z-50">
+<div id="issueModal" class="fixed inset-0 bg-blue-500/10 backdrop-blur-sm hidden flex items-center justify-center z-50 p-4">
   <div
-    class="bg-white rounded-2xl shadow-xl max-w-lg w-full p-8 relative flex flex-col gap-6"
+    class="bg-white rounded-2xl shadow-xl max-w-lg w-full p-8 relative flex flex-col gap-5 sm:gap-6"
     role="dialog" aria-modal="true" aria-labelledby="modalTitle"
   >
 
-    <h2 id="modalTitle" class="text-2xl font-bold text-gray-900"></h2>
+    <h2 id="modalTitle" class="text-2xl sm:text-2xl font-bold text-gray-900"></h2>
 
-    <div class="flex items-center gap-3 text-sm text-gray-600">
+     <div class="flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm text-gray-600">
       <span id="modalStatus" class="inline-block px-3 py-1 rounded-full text-white bg-green-500 font-semibold"></span>
       <span class="inline-block w-2 h-2 bg-black rounded-full"></span>
       <span id="modalAuthor"></span>
@@ -106,24 +105,23 @@
       <span id="modalDate"></span>
     </div>
 
-
     <div id="modalLabels" class="flex flex-wrap gap-2 text-xs"></div>
     <p id="modalDescription" class="text-gray-600 text-sm leading-relaxed"></p>
 
-    <div class="flex justify-between bg-gray-50 p-4 rounded-lg text-sm text-gray-800 font-semibold">
+    <div class="flex flex-col sm:flex-row sm:justify-between bg-gray-50 p-4 rounded-lg text-sm text-gray-800 font-semibold gap-4">
       <div>
-       <p>Assignee:</p> <br />
+        <p>Assignee:</p>
         <span id="modalAssignee" class="font-normal"></span>
       </div>
       <div>
-        <p>Priority:</p><br />
+        <p>Priority:</p>
         <span id="modalPriority" class="inline-block px-3 py-1 rounded-full text-white font-semibold"></span>
       </div>
     </div>
     <button
       id="closeModal"
-      class="self-end bg-indigo-600 hover:bg-indigo-700 text-white rounded-md px-6 py-2 font-semibold" >
-     <p> Close</p>
+      class="self-end bg-indigo-600 hover:bg-indigo-700 text-white rounded-md px-5 py-2 font-semibold text-sm sm:text-base">
+      Close
     </button>
   </div>
 </div>
