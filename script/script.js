@@ -66,7 +66,7 @@ function renderIssues(issues) {
         : "border-t-4 border-purple-500";
 
         const card = `
-        <div class="bg-white rounded-xl shadow-sm border-t border-gray-200 p-5 relative ${statusBorder}">
+        <div onclick="openModal(${issue.id})" class="bg-white rounded-xl shadow-sm border-t border-gray-200 p-5 relative ${statusBorder}">
 
             <!-- Priority -->
             <div class="absolute top-4 right-4">
@@ -136,5 +136,56 @@ document.getElementById("closedBtn").onclick = function() {
     const closedIssues = allIssues.filter(issue => issue.status === "closed");
     renderIssues(closedIssues);
 };
-
 loadIssues();
+
+function openModal(issueId) {
+  const issue = allIssues.find(i => i.id === issueId);
+  document.getElementById("modalTitle").textContent = issue.title;
+  const statusEl = document.getElementById("modalStatus");
+  statusEl.textContent = issue.status.charAt(0).toUpperCase() + issue.status.slice(1);
+
+  statusEl.className = "inline-block px-3 py-1 rounded-full text-white font-semibold " + 
+    (issue.status === "open" ? "bg-green-500" : "bg-purple-500");
+
+  document.getElementById("modalAuthor").textContent = "Opened by " + issue.author;
+  const date = new Date(issue.createdAt);
+  const formattedDate = date.toLocaleDateString("en-GB"); 
+  document.getElementById("modalDate").textContent = formattedDate;
+
+  const labelsContainer = document.getElementById("modalLabels");
+  labelsContainer.innerHTML = issue.labels.map(label => {
+    const colors = {
+      bug: "bg-red-100 text-red-600",
+      "help wanted": "bg-yellow-100 text-yellow-600",
+      enhancement: "bg-green-100 text-green-600"
+    };
+;
+    const colorClass = colors[label.toLowerCase()] || "bg-gray-100 text-gray-600";
+
+    return `
+      <span class="flex items-center gap-1 px-3 py-1 rounded-full ${colorClass} font-medium">
+       ${label.toUpperCase()}
+      </span>`;
+  }).join("");
+
+  document.getElementById("modalDescription").textContent = issue.description;
+
+  document.getElementById("modalAssignee").textContent = issue.assignee || "Unassigned";
+
+  const priorityEl = document.getElementById("modalPriority");
+  priorityEl.textContent = issue.priority.toUpperCase();
+  const priorityColors = {
+    high: "bg-red-600",
+    medium: "bg-yellow-500",
+    low: "bg-gray-400"
+  };
+  priorityEl.className = "inline-block px-3 py-1 rounded-full text-white font-semibold " + 
+    (priorityColors[issue.priority.toLowerCase()] || "bg-gray-400");
+
+  document.getElementById("issueModal").classList.remove("hidden");
+}
+
+document.getElementById("closeModal").onclick = function(){
+    document.getElementById("issueModal").classList.add("hidden");
+};
+
