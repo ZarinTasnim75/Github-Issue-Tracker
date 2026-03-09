@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Github Issue Tracker</title>
+    <!-- tailwind+ daisy  -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- outfit fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
+
+    <!-- icons  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        * {
+            font-family: "Geist", sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-[#F8FAFC] min-h-screen flex items-center justify-center">
+        <div class="w-full max-w-md bg-white shadow-xl p-7">
+            <div class="flex justify-center mb-3">
+                <img src="assets/github-logo.png" class="w-20" />
+            </div>
+
+            <h2 class="text-xl font-bold text-center">GitHub Issues Tracker</h2>
+            <p class="text-sm text-center text-gray-500 mb-5">
+                Sign in to manage your issues
+            </p>
+
+            <form class="flex flex-col gap-4">
+                <div class="flex flex-col w-full">
+                    <label class="text-sm mb-1">Username</label>
+                    <input type="text" placeholder="Enter Username" class="input w-full" />
+                    <p class="text-xs text-purple-600 mt-1">Default: admin</p>
+                </div>
+                <div class="flex flex-col w-full">
+                    <label class="text-sm mb-1">Password</label>
+                    <input type="password" placeholder="Enter Password" class="input w-full" />
+                    <p class="text-xs text-purple-600 mt-1">Default: admin123</p>
+                </div>
+
+                <button class="btn btn-primary w-full mt-5">Sign In</button>
+            </form>
+            <div class="divider my-4">OR</div>
+
+            <p class="text-center text-xs mb-1">Demo Credentials:</p>
+            <div class="bg-gray-50 p-4 text-sm text-gray-700 text-center rounded">
+                <p><span class="font-bold">Username:</span> admin</p>
+                <p><span class="font-bold">Password:</span> admin123</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
